@@ -4,16 +4,30 @@ const {Schema} = mongoose
 const userSchema = new Schema({
     fullName:{
         type:String,
-        require: true
+        required: true
     },
     userName:{
         type: String,
-        require: true
+        required: true
     },
     password: {
         type: String,
-        require: true
+        required: true
     },
+     role:{
+        type: String,
+        enum: ["admin", "moderator", "user"],
+        default: "user"
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    profilePic:{
+        type: String,
+        default:"https://i.ibb.co/RpxVCL40/d82c9c5a2621.png"
+    }
+    
     
    
     

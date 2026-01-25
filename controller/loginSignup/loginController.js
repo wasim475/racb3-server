@@ -1,5 +1,5 @@
 
-const userSchema = require('../model/userSchema')
+const userSchema = require('../../model/userSchema')
 
 const loginController = async (req, res)=>{
     const {inputUserName, password} = req.body
@@ -12,7 +12,7 @@ const loginController = async (req, res)=>{
     const userEmail = CurrentUser?.userName
     const userPassword = CurrentUser?.password 
     if(userEmail===inputUserName && userPassword===password){
-        res.send({success: "Login Successfull", user: {name:CurrentUser.fullName,userName:CurrentUser.userName,id:CurrentUser._id, passwordServer:CurrentUser.password}})
+        res.send({success: "Login Successfull", user: {name:CurrentUser.fullName, role:CurrentUser.role,userName:CurrentUser.userName,id:CurrentUser._id, passwordServer:CurrentUser.password, profilePic: CurrentUser.profilePic}})
     }else{
         res.send({error:"ইউজারনেম অথবা পাসওয়ার্ড ভুল হয়েছে..."})    
     }   

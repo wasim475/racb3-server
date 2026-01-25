@@ -1,4 +1,4 @@
-const announcementModel = require("../model/announcementModel")
+const announcementModel = require("../../model/announcementModel")
 
 const getAnnouncementDataController = async (req, res) => {
    

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const articleSchema = new Schema({
+const noteSchema = new Schema({
   author: {
     type: String,
     required: true,
@@ -30,6 +30,10 @@ const articleSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  ownerId:{
+        type: mongoose.Types.ObjectId,
+        ref:"user"
+    }
 });
 
-module.exports = mongoose.model("articleData", articleSchema);
+module.exports = mongoose.model("note", noteSchema);

@@ -1,7 +1,7 @@
 const userSchema = require("../../model/userSchema");
 
 const loginWithGoogleController = async (req, res) => {
-  const { fullName, userName, password, email } = req.body;
+  const { fullName, userName, password, email, profilePic } = req.body;
   //   console.log(fullName, userName,password, email)
   const existUser = await userSchema.find({
     $or: [{ email }],
@@ -17,6 +17,7 @@ const loginWithGoogleController = async (req, res) => {
         userName,
         password,
         email,
+        profilePic
       });
       await newUser.save();
       console.log(newUser);

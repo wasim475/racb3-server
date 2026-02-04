@@ -7,13 +7,14 @@ const getAllNOtes = require('../../controller/noteController/getAllNotesControll
 const uploadImageController = require('../../controller/noteController/uploadImageController');
 const upload = require('../../middleware/multer.config');
 const videoUpload = require("../../middleware/multerVideo");
+const isLogin = require("../../middleware/middleware");
 const { authYoutube, oauthCallback, uploadVideo } = require('../../controller/noteController/youtubeVideoController');
 
 _.post("/write-note", WriteNoteController);
 _.post("/upload-image",  upload.single("image"), uploadImageController);
 _.get("/auth", authYoutube);
 _.get("/oauth2callback", oauthCallback);
-_.post("/upload-video", videoUpload.single("video"), uploadVideo);
+_.post("/upload-video", uploadVideo);
 
 _.get("/get-all-notes", getAllNOtes);
 _.get("/get-all-notes/:id", getAllNOtes);

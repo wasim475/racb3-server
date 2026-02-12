@@ -11,6 +11,9 @@ const noteSchema = new Schema({
     type: String,
     required: true,
   },
+  classType: {
+    type: String,
+  },
 
   content: {
     type: String,

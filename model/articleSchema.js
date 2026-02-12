@@ -12,9 +12,15 @@ const articleSchema = new Schema({
     required: true,
   },
 
+  classType:{
+    type: String,
+    required: true
+  },
+
   content: {
     type: String,
     required: true,
+    default:'Theory'
   },
 
   pdfLink: {
